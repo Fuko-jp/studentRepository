@@ -25,14 +25,20 @@ repositories {
 }
 
 dependencies {
+	//Spring Boot
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.apache.commons:commons-lang3:3.14.0'
+	//ThymeLeaf
+	implementation 'org.thymeleaf:thymeleaf:3.1.2.RELEASE'
+	//便利機能、ユーティリティ
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	//Lombok
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+	//MySQLドライバ
 	runtimeOnly 'com.mysql:mysql-connector-j'
 }
 

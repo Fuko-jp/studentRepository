@@ -13,25 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class StudentsApplication {
 
-//	@Autowired
-//	private StudentRepository repository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(StudentsApplication.class, args);
 	}
 }
-//@PostMapping("/students")
-//public void registerStudent(@RequestBody Student student) {
-//	repository.registerStudent(student);
-//
-//}
-//
-//@PatchMapping("/students/{id}")
-//public void updateStudentAge(@PathVariable int id, @RequestParam int age){
-//	repository.updateStudentAge(id, age);
-//}
-//
-//@DeleteMapping("/students/{id}")
-//public void deleteStudent(@PathVariable int id){
-//	repository.deleteStudent(id);
-//	}
