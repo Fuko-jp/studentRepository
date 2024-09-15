@@ -28,7 +28,7 @@ import org.springframework.stereotype.Repository;
  @Select("SELECT * FROM students")
  List<Student> search();
 
- @Select("SELECT * FROM students_courses")
+ @Select("SELECT * FROM student_courses")
   List<StudentsCourses> sesrchStudentsCourses();
 
 // @Insert("INSERT INTO students (name, nickname, eAddress, region, age, sex) VALUES (#{name}, #{nickname}, #{eAddress}, #{region}, #{age}, #{sex})")

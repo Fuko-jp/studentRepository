@@ -15,11 +15,10 @@ public class Student {
   private String region;
   private int age;
   private String sex;
-  private String remark;
-  private boolean isDeleted;
 
 
-  public Student(String id, String name, String kanaName, String nickname, String email, String region, int age,String remark, boolean isDeleted, String sex) {
+
+  public Student(String id, String name, String kanaName, String nickname, String email, String region, int age, String sex) {
     this.id = id;
     this.name = name;
     this.kanaName = kanaName;
@@ -28,17 +27,10 @@ public class Student {
     this.region = region;
     this.age = age;
     this.sex = sex;
-    this.remark = remark;
-    this.isDeleted = isDeleted;
+
   }
 
 
-  public boolean isDeleted() {
-    return isDeleted;
   }
 
-  public void setDeleted(boolean deleted) {
-    isDeleted = deleted;
-  }
-}
 
