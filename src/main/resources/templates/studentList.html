@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>受講生情報一覧</title>
 </head>
 <body>
-
+<h1>受講生情報一覧</h1>
+<table>border="1"</table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>名前</th>
+    <th>カナ名</th>
+    <th>ニックネーム</th>
+    <th>地域</th>
+    <th>年齢</th>
+    <th>性別</th>
+    <th>備考</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="studentDetail : ${studentList}">
+    <td th:text="$studentDetail.student.id}">1</td>
+    <td th:text="$studentDetail.student.name}">田中太郎</td>
+    <td th:text="$studentDetail.student.kanaName}">たなかたろう</td>
+    <td th:text="$studentDetail.student.nickname}">タロ</td>
+    <td th:text="$studentDetail.student.email}">aaa@gm.com</td>
+    <td th:text="$studentDetail.student.region}">東京</td>
+    <td th:text="$studentDetail.student.age}">18</td>
+    <td th:text="$studentDetail.student.sex}">男</td>
+    <td th:text="$studentDetail.student.remark}">特になし</td>
+  </tr>
+  </tbody>
 </body>
 </html>
