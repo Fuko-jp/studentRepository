@@ -8,9 +8,24 @@ import lombok.Setter;
 
 @Getter
 @Setter
+
 public class StudentDetail {
-
   private Student student;
-  private List<StudentsCourses> studentsCoursesLis;
 
-}
+  public Student getStudent() {
+    return student;
+  }
+
+  public void setStudent(Student student) {
+    this.student = student;
+  }
+
+  public void setStudentsCoursesList(
+      List<StudentsCourses> studentsCoursesList) {
+    this.studentsCoursesList = studentsCoursesList;
+  }
+
+  private List<StudentsCourses> studentsCoursesList;
+
+  }
+
