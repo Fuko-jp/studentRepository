@@ -6,7 +6,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Student {
+  public Student(){
 
+  }
   private String id;
   private String name;
   private String kanaName;
