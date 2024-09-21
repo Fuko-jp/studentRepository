@@ -3,7 +3,9 @@ package Students.students.repository;
 import Students.students.data.Student;
 import Students.students.data.StudentsCourses;
 import java.util.List;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -31,13 +33,9 @@ import org.springframework.stereotype.Repository;
  @Select("SELECT * FROM student_courses")
   List<StudentsCourses> sesrchStudentsCourses();
 
-// @Insert("INSERT INTO students (name, nickname, eAddress, region, age, sex) VALUES (#{name}, #{nickname}, #{eAddress}, #{region}, #{age}, #{sex})")
-// void registerStudent(Student student);
-//
-// @Update("UPDATE students SET age = #{age} WHERE id = #{id}")
-// void updateStudentAge(@Param("id") int id, @Param("age") int age);
-//
-// @Delete("DELETE FROM students WHERE id = #{id}")
-// void deleteStudent(@Param("id") int id);
-//
+ @Insert("INSERT INTO students(name, kana_name, nickname, email, region, age, sex, remark) VALUES{#name}, #{kanaName}, #{nickname}, #{email}, #{region}, #{age}, #{sex}, #{remark}, false" )
+ @Options(useGeneratedKeys = true, keyProperty = "id")
+ void registerStudent(Student student);
+
+
 }
