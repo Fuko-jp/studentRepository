@@ -19,17 +19,22 @@ public class StudentService {
     this.repository = repository;
   }
   public List<Student> searchStudnetList(){
-    //検索処理
-    repository.search();
-
-
     return repository.search();
   }
   public List<StudentsCourses> searchStudentsCoursesList(){
     return repository.sesrchStudentsCourses();
   }
+//  @Transactional
+//  public void registerStudent(StudentDetail studentDetail){
+//    repository.registerStudent(studentDetail.getStudent());
+//    //TODOコース情報登録
+//  }
+
   @Transactional
-  public void registerStudent(StudentDetail studentDetail){
+  public void registerStudent(StudentDetail studentDetail) {
+    // studentDetail から student を取得して保存する
     repository.registerStudent(studentDetail.getStudent());
   }
+
+
 }

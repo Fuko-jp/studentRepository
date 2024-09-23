@@ -6,24 +6,13 @@ import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
 @Setter
+@Getter
+
 
 public class StudentDetail {
+
   private Student student;
-
-  public Student getStudent() {
-    return student;
-  }
-
-  public void setStudent(Student student) {
-    this.student = student;
-  }
-
-  public void setStudentsCoursesList(
-      List<StudentsCourses> studentsCoursesList) {
-    this.studentsCoursesList = studentsCoursesList;
-  }
 
   private List<StudentsCourses> studentsCoursesList;
 

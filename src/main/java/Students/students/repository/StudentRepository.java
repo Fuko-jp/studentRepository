@@ -9,9 +9,6 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
-//import java.util.Optional;
-//import org.xmlunit.util.Mapper;
-
 /**
  * 受講生情報を扱うリポジトリ
  *
@@ -22,10 +19,10 @@ import org.springframework.stereotype.Repository;
   @Repository
  public interface StudentRepository {
 
- /**
-  * 全件検索します。
-  * @return　全件検索した受講生情報の一覧
-  */
+// /**
+//  * 全件検索します。
+//  * @return　全件検索した受講生情報の一覧
+//  */
 
  @Select("SELECT * FROM students")
  List<Student> search();
@@ -33,7 +30,10 @@ import org.springframework.stereotype.Repository;
  @Select("SELECT * FROM student_courses")
   List<StudentsCourses> sesrchStudentsCourses();
 
- @Insert("INSERT INTO students(name, kana_name, nickname, email, region, age, sex, remark) VALUES{#name}, #{kanaName}, #{nickname}, #{email}, #{region}, #{age}, #{sex}, #{remark}, false" )
+
+ @Insert("INSERT INTO students(name, kana_name, nickname, email, region, age, sex, remark, isDeleted)"
+     + "VALUES(#{name}, #{kanaName}, #{nickname}, #{email}, #{region}, #{age}, #{sex}, #{remark}, false)")
+
  @Options(useGeneratedKeys = true, keyProperty = "id")
  void registerStudent(Student student);
 
