@@ -37,5 +37,10 @@ import org.springframework.stereotype.Repository;
  @Options(useGeneratedKeys = true, keyProperty = "id")
  void registerStudent(Student student);
 
+ @Insert("INSERT INTO student_courses(studentId, course, courseStartAt, courseEndAt)"
+     +"VALUES(#{studentId}, #{course}, #{courseStartAt}, #{courseEndAt})")
+ @Options(useGeneratedKeys = true, keyProperty = "id")
+ void registerStudentsCourses(StudentsCourses studentsCourses);
+
 
 }

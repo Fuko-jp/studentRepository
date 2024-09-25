@@ -4,6 +4,7 @@ import Students.students.data.Student;
 import Students.students.data.StudentsCourses;
 import Students.students.domain.StudentDetail;
 import Students.students.repository.StudentRepository;
+import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,17 +25,19 @@ public class StudentService {
   public List<StudentsCourses> searchStudentsCoursesList(){
     return repository.sesrchStudentsCourses();
   }
-//  @Transactional
-//  public void registerStudent(StudentDetail studentDetail){
-//    repository.registerStudent(studentDetail.getStudent());
+
 //    //TODOコース情報登録
-//  }
 
   @Transactional
   public void registerStudent(StudentDetail studentDetail) {
     // studentDetail から student を取得して保存する
     repository.registerStudent(studentDetail.getStudent());
+    for (StudentsCourses studentsCourses : studentDetail.getStudentsCourses()) {
+      studentsCourses.setStudentId(studentDetail.getStudent().getId());
+      studentsCourses.setCourseStartAt(LocalDateTime.now());
+      studentsCourses.setCourseEndAt(LocalDateTime.now().plusYears(1));
+      repository.registerStudentsCourses(studentsCourses);
+    }
+
   }
-
-
 }
