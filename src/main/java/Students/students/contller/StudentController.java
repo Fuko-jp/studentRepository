@@ -52,8 +52,6 @@ public class StudentController {
     model.addAttribute("studentDetail", studentDetail);
     return "registerStudent";
   }
-
-
   @PostMapping("/registerStudent")
   public String registerStudent(@ModelAttribute StudentDetail studentDetail, BindingResult result) {
     if (result.hasErrors()) {
@@ -61,5 +59,13 @@ public class StudentController {
     }
     service.registerStudent(studentDetail);
     return "redirect:/studentList";
+  }
+
+  @GetMapping("/updateStudent")
+  public String updateStudent(Model model){
+    StudentDetail studentDetail = new StudentDetail();
+
+    model.addAttribute("studentDetail", studentDetail);
+    return "updateStudent";
   }
 }

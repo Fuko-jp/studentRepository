@@ -9,7 +9,6 @@ import lombok.Setter;
 @Setter
 @Getter
 
-
 public class StudentDetail {
 
   private Student student;
