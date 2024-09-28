@@ -42,5 +42,10 @@ import org.springframework.stereotype.Repository;
  @Options(useGeneratedKeys = true, keyProperty = "id")
  void registerStudentsCourses(StudentsCourses studentsCourses);
 
+ @Select("SELECT * FROM students WHERE id = #{id}")
+ Student findStudentById(String id);
+
+ @Select("SELECT * FROM student_courses WHERE studentId = #{studentId}")
+ List<StudentsCourses> findCoursesByStudentId(String studentId);
 
 }

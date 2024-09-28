@@ -19,7 +19,7 @@ public class StudentService {
   public StudentService(StudentRepository repository){
     this.repository = repository;
   }
-  public List<Student> searchStudnetList(){
+  public List<Student> searchStudentList(){
     return repository.search();
   }
   public List<StudentsCourses> searchStudentsCoursesList(){
@@ -40,4 +40,13 @@ public class StudentService {
     }
 
   }
-}
+
+    public Student findStudentById(String studentId) {
+      return repository.findStudentById(studentId);
+    }
+
+    public List<StudentsCourses> findCoursesByStudentId(String studentId) {
+      return repository.findCoursesByStudentId(studentId);
+    }
+  }
+

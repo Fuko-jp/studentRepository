@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>受講生詳細情報</title>
+</head>
+<body>
+<h1>受講生詳細情報</h1>
+<div>
+  <p>ID: <span th:text="${studentDetail?.student?.id}"></span></p>
+  <p>名前: <span th:text="${studentDetail?.student?.name}"></span></p>
+  <p>カナ名: <span th:text="${studentDetail?.student?.kanaName}"></span></p>
+  <p>ニックネーム: <span th:text="${studentDetail?.student?.nickname}"></span></p>
+  <p>メールアドレス: <span th:text="${studentDetail?.student?.email}"></span></p>
+  <p>地域: <span th:text="${studentDetail?.student?.region}"></span></p>
+  <p>年齢: <span th:text="${studentDetail?.student?.age}"></span></p>
+  <p>性別: <span th:text="${studentDetail?.student?.sex}"></span></p>
+  <p>備考: <span th:text="${studentDetail?.student?.remark}"></span></p>
+</div>
+
+
+<a href="/studentList">受講生一覧に戻る</a>
+</body>
+</html>

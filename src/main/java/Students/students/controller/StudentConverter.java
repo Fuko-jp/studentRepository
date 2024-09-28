@@ -1,4 +1,4 @@
-package Students.students.contller;
+package Students.students.controller;
 
 import Students.students.data.Student;
 import Students.students.data.StudentsCourses;
@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
+
 
 @Component
 public class StudentConverter {

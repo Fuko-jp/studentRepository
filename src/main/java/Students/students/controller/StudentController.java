@@ -1,21 +1,20 @@
-package Students.students.contller;
+package Students.students.controller;
 
 import Students.students.data.Student;
 import Students.students.data.StudentsCourses;
 import Students.students.domain.StudentDetail;
+import Students.students.controller.StudentConverter;
 import Students.students.service.StudentService;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 
@@ -24,7 +23,7 @@ public class StudentController {
   private StudentService service;
   private StudentConverter converter;
 
-@Autowired
+  @Autowired
   public StudentController(StudentService service, StudentConverter converter) {
     this.service = service;
     this.converter = converter;
@@ -32,26 +31,40 @@ public class StudentController {
 
   @GetMapping("/studentList")
   public String getStudentList(Model model) {
-    List<Student> students = service.searchStudnetList();
+    List<Student> students = service.searchStudentList();
     List<StudentsCourses> studentsCourses = service.searchStudentsCoursesList();
-
 
     model.addAttribute("studentList", converter.convertStudentDetails(students, studentsCourses));
     return "studentList";
 
-
   }
+
   @GetMapping("/studentCourseList")
-  public List<StudentsCourses> getStudentCourseList(){
+  public List<StudentsCourses> getStudentCourseList() {
     return service.searchStudentsCoursesList();
   }
+
+  @GetMapping("/student/{id}")
+  public String getStudentById(@PathVariable("id") String studentId, Model model) {
+    Student student = service.findStudentById(studentId);
+    List<StudentsCourses> studentCourses = service.findCoursesByStudentId(studentId);
+    StudentDetail studentDetail = new StudentDetail();
+    studentDetail.setStudent(student);
+    studentDetail.setStudentsCourses(studentCourses);
+    model.addAttribute("studentDetail", studentDetail);
+
+    return "studentDetail"; 
+  }
+
+
   @GetMapping("/newStudent")
-  public String newStudent(Model model){
+  public String newStudent(Model model) {
     StudentDetail studentDetail = new StudentDetail();
     studentDetail.setStudentsCourses(Arrays.asList(new StudentsCourses()));
     model.addAttribute("studentDetail", studentDetail);
     return "registerStudent";
   }
+
   @PostMapping("/registerStudent")
   public String registerStudent(@ModelAttribute StudentDetail studentDetail, BindingResult result) {
     if (result.hasErrors()) {
@@ -62,7 +75,7 @@ public class StudentController {
   }
 
   @GetMapping("/updateStudent")
-  public String updateStudent(Model model){
+  public String updateStudent(Model model) {
     StudentDetail studentDetail = new StudentDetail();
 
     model.addAttribute("studentDetail", studentDetail);
