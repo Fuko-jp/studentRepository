@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -18,19 +19,19 @@ import org.springframework.stereotype.Repository;
  @Mapper
   @Repository
  public interface StudentRepository {
+  @Select("SELECT * FROM students")
+  List<Student> search();
 
-// /**
-//  * 全件検索します。
-//  * @return　全件検索した受講生情報の一覧
-//  */
-
- @Select("SELECT * FROM students")
- List<Student> search();
+ @Select("SELECT * FROM students WHERE id = #{id}")
+ Student searchStudent(String id);
 
  @Select("SELECT * FROM student_courses")
-  List<StudentsCourses> sesrchStudentsCourses();
+ List<StudentsCourses> searchStudentsCoursesList();
 
+ @Select("SELECT * FROM student_courses WHERE studentId = #{studentId}")
+ List<StudentsCourses> searchStudentsCourse(String studentId);
 
+//受講生登録
  @Insert("INSERT INTO students(name, kana_name, nickname, email, region, age, sex, remark, isDeleted)"
      + "VALUES(#{name}, #{kanaName}, #{nickname}, #{email}, #{region}, #{age}, #{sex}, #{remark}, false)")
 
@@ -42,10 +43,22 @@ import org.springframework.stereotype.Repository;
  @Options(useGeneratedKeys = true, keyProperty = "id")
  void registerStudentsCourses(StudentsCourses studentsCourses);
 
- @Select("SELECT * FROM students WHERE id = #{id}")
- Student findStudentById(String id);
+ //Idから受講生情報を取得
+// @Select("SELECT * FROM students WHERE id = #{id}")
+// Student findStudentById(String id);
+//
+// @Select("SELECT * FROM student_courses WHERE studentId = #{studentId}")
+// List<StudentsCourses> findCoursesByStudentId(String studentId);
 
- @Select("SELECT * FROM student_courses WHERE studentId = #{studentId}")
- List<StudentsCourses> findCoursesByStudentId(String studentId);
+ //受講生更新
+ @Update("UPDATE students SET name = #{name}, kana_name = #{kanaName}, nickname = #{nickname}, "
+     + "email = #{email}, region = #{region}, age = #{age}, sex = #{sex}, remark = #{remark}, isDeleted = #{isDeleted} WHERE id = #{id}")
+
+ void updateStudent(Student student);
+
+ @Update("UPDATE student_courses SET course = #{course} WHERE id = #{id}")
+
+ void updateStudentsCourses(StudentsCourses studentsCourses);
+
 
 }

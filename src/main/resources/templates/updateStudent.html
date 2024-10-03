@@ -2,11 +2,15 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
-  <title>受講生更新</title>
+  <title>受講生詳細</title>
 </head>
 <body>
-<h1>受講生更新</h1>
-<form th:action="@{/registerStudent}" th:object="${studentDetail}" method="post">
+<h1>受講生詳細</h1>
+<form th:action="@{/updateStudent}" th:object="${studentDetail}" method="post">
+  <div>
+    <label for="id">ID:</label>
+    <input type="text" id="id" th:field="*{student.id}" required/>
+  </div>
   <div>
     <label for="name">名前:</label>
     <input type="text" id="name" th:field="*{student.name}" required />
@@ -40,12 +44,17 @@
     <input type="text" id="remark" th:field="*{student.remark}" required />
   </div>
   <div th:each="course, stat : *{studentsCourses}">
+    <label for="id" th:for="studentsCourses.__${stat.index}__.id">受講コースID</label>
+    <input type="text" id="id" th:id="studentsCourses.__${stat.index}__.id"
+           th:field="*{studentsCourses[__${stat.index}__].id}"/>
+
     <label for="course" th:for="studentsCourses.__${stat.index}__.course">受講コース名</label>
     <input type="text" id="course" th:id="studentsCourses.__${stat.index}__.course"
            th:field="*{studentsCourses[__${stat.index}__].course}"/>
   </div>
   <div>
-    <button type="submit">登録</button>
+    <button type="submit">更新</button>
+    <button type="button" onclick="history.back()">戻る</button>
   </div>
 </form>
 
