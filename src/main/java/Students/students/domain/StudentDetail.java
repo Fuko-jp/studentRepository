@@ -15,12 +15,6 @@ public class StudentDetail {
   private Student student;
 
   private List<StudentsCourses> studentsCourses;
-//  public List<StudentsCourses> getStudentsCourses() {
-//    if (studentsCourses == null) {
-//      return Collections.emptyList();  // 空のリストを返す
-//    }
-//    return studentsCourses;
-//  }
 
   }
 
