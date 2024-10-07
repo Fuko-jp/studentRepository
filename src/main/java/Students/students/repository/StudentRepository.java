@@ -19,7 +19,7 @@ import org.springframework.stereotype.Repository;
  @Mapper
   @Repository
  public interface StudentRepository {
-  @Select("SELECT * FROM students")
+  @Select("SELECT * FROM students WHERE isDeleted = false")
   List<Student> search();
 
  @Select("SELECT * FROM students WHERE id = #{id}")
@@ -42,13 +42,6 @@ import org.springframework.stereotype.Repository;
      +"VALUES(#{studentId}, #{course}, #{courseStartAt}, #{courseEndAt})")
  @Options(useGeneratedKeys = true, keyProperty = "id")
  void registerStudentsCourses(StudentsCourses studentsCourses);
-
- //Idから受講生情報を取得
-// @Select("SELECT * FROM students WHERE id = #{id}")
-// Student findStudentById(String id);
-//
-// @Select("SELECT * FROM student_courses WHERE studentId = #{studentId}")
-// List<StudentsCourses> findCoursesByStudentId(String studentId);
 
  //受講生更新
  @Update("UPDATE students SET name = #{name}, kana_name = #{kanaName}, nickname = #{nickname}, "

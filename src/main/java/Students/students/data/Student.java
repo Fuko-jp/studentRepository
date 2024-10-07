@@ -20,10 +20,10 @@ public class Student {
   private int age;
   private String sex;
   private String remark;
-  private int isDeleted;
+  public boolean isDeleted;
 
   public Student(String id, String name, String kana_name, String nickname, String email,
-      String region, int age, String sex, String remark, int isDeleted) {
+      String region, int age, String sex, String remark, boolean isDeleted) {
     this.id = id;
     this.name = name;
     this.kanaName = kana_name;
@@ -89,10 +89,10 @@ public class Student {
   public void setRemark(String remark) {
     this.remark = remark;
   }
-  public int getIsDeleted() {
+  public boolean getIsDeleted() {
     return isDeleted;
   }
-  public void setIsDeleted(int isDeleted) {
+  public void setIsDeleted(boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 }

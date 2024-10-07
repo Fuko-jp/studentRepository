@@ -1,10 +1,9 @@
-package Students.students.controller;
+package students.students.controller;
 
-import Students.students.data.Student;
-import Students.students.data.StudentsCourses;
-import Students.students.domain.StudentDetail;
-import Students.students.controller.StudentConverter;
-import Students.students.service.StudentService;
+import students.students.data.Student;
+
+
+
 import java.util.Arrays;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +14,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import students.students.data.StudentsCourses;
+import students.students.domain.StudentDetail;
+import students.students.service.StudentService;
 
 @Controller
 

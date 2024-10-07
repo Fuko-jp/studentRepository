@@ -1,7 +1,7 @@
-package Students.students;
+package students.students;
 
-import Students.students.data.Student;
-import Students.students.repository.StudentRepository;
+
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
