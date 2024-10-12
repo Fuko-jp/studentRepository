@@ -37,11 +37,8 @@ public class StudentService {
   public List<StudentsCourses> searchStudentsCoursesList() {
     return repository.searchStudentsCoursesList();
   }
-
-//    //TODOコース情報登録
-
   @Transactional
-  public void registerStudent(StudentDetail studentDetail) {
+  public StudentDetail registerStudent(StudentDetail studentDetail) {
     // studentDetail から student を取得して保存する
     repository.registerStudent(studentDetail.getStudent());
     for (StudentsCourses studentsCourses : studentDetail.getStudentsCourses()) {
@@ -50,6 +47,7 @@ public class StudentService {
       studentsCourses.setCourseEndAt(LocalDateTime.now().plusYears(1));
       repository.registerStudentsCourses(studentsCourses);
     }
+    return studentDetail;
   }
   @Transactional
   public void updateStudent(StudentDetail studentDetail) {
@@ -57,16 +55,5 @@ public class StudentService {
     for (StudentsCourses studentsCourses : studentDetail.getStudentsCourses()) {
       repository.updateStudentsCourses(studentsCourses);
     }
-
   }
-
-//  public Student findStudentById(String studentId) {
-//    return repository.findStudentById(studentId);
-//  }
-//
-//  public List<StudentsCourses> findCoursesByStudentId(String studentId) {
-//    return repository.findCoursesByStudentId(studentId);
-
-//  }
-
 }

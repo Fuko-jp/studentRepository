@@ -9,7 +9,6 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
-
 /**
  * 受講生情報を扱うリポジトリ
  *
@@ -52,6 +51,5 @@ import org.springframework.stereotype.Repository;
  @Update("UPDATE student_courses SET course = #{course} WHERE id = #{id}")
 
  void updateStudentsCourses(StudentsCourses studentsCourses);
-
 
 }

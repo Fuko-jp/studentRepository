@@ -11,14 +11,23 @@ public class Student {
 
   }
 
+  @Getter
   private String id;
+  @Getter
   private String name;
+  @Getter
   private String kanaName;
+  @Getter
   private String nickname;
+  @Getter
   private String email;
+  @Getter
   private String region;
+  @Getter
   private int age;
+  @Getter
   private String sex;
+  @Getter
   private String remark;
   public boolean isDeleted;
 
@@ -35,57 +44,39 @@ public class Student {
     this.remark = remark;
     this.isDeleted = isDeleted;
   }
-  public String getId() {
-    return id;
-  }
+
   public void setId(String id) {
     this.id = id;
   }
-  public String getName() {
-    return name;
-  }
+
   public void setName(String name) {
     this.name = name;
   }
-  public String getKanaName() {
-    return kanaName;
-  }
+
   public void setKanaName(String kanaName) {
     this.kanaName = kanaName;
   }
-  public String getNickname() {
-    return nickname;
-  }
+
   public void setNickname(String nickname) {
     this.nickname = nickname;
   }
-  public String getEmail() {
-    return email;
-  }
+
   public void setEmail(String email) {
     this.email = email;
   }
-  public String getRegion() {
-    return region;
-  }
+
   public void setRegion(String region) {
     this.region = region;
   }
-  public int getAge() {
-    return age;
-  }
+
   public void setAge(int age) {
     this.age = age;
   }
-  public String getSex() {
-    return sex;
-  }
+
   public void setSex(String sex) {
     this.sex = sex;
   }
-  public String getRemark() {
-    return remark;
-  }
+
   public void setRemark(String remark) {
     this.remark = remark;
   }
