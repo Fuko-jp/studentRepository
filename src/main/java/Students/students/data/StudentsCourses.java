@@ -11,17 +11,19 @@ public class StudentsCourses {
 
   private String id;
   private String studentId;
-  private String courseName;
+  private String course;
   private LocalDateTime courseStartAt;
   private LocalDateTime courseEndAt;
 
-  public StudentsCourses(String id, String studentId, String courseName,
-      LocalDateTime courseStartAt,
-      LocalDateTime courseEndAt) {
+  public StudentsCourses() {
     this.id = id;
     this.studentId = studentId;
-    this.courseName = courseName;
+    this.course = course;
     this.courseStartAt = courseStartAt;
     this.courseEndAt = courseEndAt;
   }
-}
+
+
+
+  }
+

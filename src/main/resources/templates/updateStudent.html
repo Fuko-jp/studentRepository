@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
-  <title>受講生登録</title>
+  <title>受講生更新</title>
 </head>
 <body>
-<h1>受講生登録</h1>
+<h1>受講生更新</h1>
 <form th:action="@{/registerStudent}" th:object="${studentDetail}" method="post">
   <div>
     <label for="name">名前:</label>
@@ -16,7 +16,6 @@
     <input type="text" id="kanaName" th:field="*{student.kanaName}" required />
   </div>
   <div>
-
     <label for="nickname">ニックネーム</label>
     <input type="text" id="nickname" th:field="*{student.nickname}" required />
   </div>
@@ -49,5 +48,6 @@
     <button type="submit">登録</button>
   </div>
 </form>
+
 </body>
 </html>

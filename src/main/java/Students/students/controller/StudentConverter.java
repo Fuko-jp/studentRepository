@@ -1,4 +1,4 @@
-package Students.students.contller;
+package Students.students.controller;
 
 import Students.students.data.Student;
 import Students.students.data.StudentsCourses;
@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
+
 
 @Component
 public class StudentConverter {
@@ -22,7 +23,7 @@ public class StudentConverter {
     List<StudentsCourses> convertStudentCourses = studentsCourses.stream()
         .filter(studentCourse -> student.getId().equals(studentCourse.getStudentId()))
         .collect(Collectors.toList());
-    studentDetail.setStudentsCoursesList(convertStudentCourses);
+    studentDetail.setStudentsCourses(convertStudentCourses);
     studentDetails.add(studentDetail);
   });
     return studentDetails;
