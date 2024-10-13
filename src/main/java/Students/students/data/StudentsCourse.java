@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class StudentsCourses {
+public class StudentsCourse {
 
   private String id;
   private String studentId;
@@ -15,7 +15,7 @@ public class StudentsCourses {
   private LocalDateTime courseStartAt;
   private LocalDateTime courseEndAt;
 
-  public StudentsCourses() {
+  public StudentsCourse() {
     this.id = id;
     this.studentId = studentId;
     this.course = course;
