@@ -31,6 +31,7 @@ import org.springframework.stereotype.Repository;
   List<StudentsCourses> sesrchStudentsCourses();
 
 
+
  @Insert("INSERT INTO students(name, kana_name, nickname, email, region, age, sex, remark, isDeleted)"
      + "VALUES(#{name}, #{kanaName}, #{nickname}, #{email}, #{region}, #{age}, #{sex}, #{remark}, false)")
 
@@ -47,5 +48,11 @@ import org.springframework.stereotype.Repository;
 
  @Select("SELECT * FROM student_courses WHERE studentId = #{studentId}")
  List<StudentsCourses> findCoursesByStudentId(String studentId);
+=======
+ @Insert("INSERT INTO students(name, kana_name, nickname, email, region, age, sex, remark) VALUES{#name}, #{kanaName}, #{nickname}, #{email}, #{region}, #{age}, #{sex}, #{remark}, false" )
+ @Options(useGeneratedKeys = true, keyProperty = "id")
+ void registerStudent(Student student);
+
+
 
 }
