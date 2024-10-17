@@ -1,5 +1,8 @@
 package Students.students.data;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,21 +15,38 @@ public class Student {
   }
 
   @Getter
+  @NotBlank
+  @Pattern(regexp = "^\\d+$")
   private String id;
+
+  @NotBlank
   @Getter
   private String name;
+
+  @NotBlank
   @Getter
   private String kanaName;
+
+  @NotBlank
   @Getter
   private String nickname;
+
+  @NotBlank
   @Getter
+  @Email
   private String email;
+
+  @NotBlank
   @Getter
   private String region;
+
   @Getter
   private int age;
+
+  @NotBlank
   @Getter
   private String sex;
+
   @Getter
   private String remark;
   public boolean isDeleted;

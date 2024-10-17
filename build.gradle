@@ -33,6 +33,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	//ThymeLeaf
 	implementation 'org.thymeleaf:thymeleaf:3.1.2.RELEASE'
+	//Validation
+	implementation 'org.springframework.boot:spring-boot-starter-validation:3.3.4'
 	//便利機能、ユーティリティ
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	//Lombok
