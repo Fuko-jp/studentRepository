@@ -35,8 +35,13 @@ dependencies {
 	implementation 'org.thymeleaf:thymeleaf:3.1.2.RELEASE'
 	//Validation
 	implementation 'org.springframework.boot:spring-boot-starter-validation:3.3.4'
+
+	//OpenAI Generator
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0'
+
 	//便利機能、ユーティリティ
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
 	//Lombok
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
