@@ -1,4 +1,4 @@
-package Students.students.data;
+package students.students.data;
 
 import lombok.Getter;
 import lombok.Setter;

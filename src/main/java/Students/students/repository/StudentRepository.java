@@ -1,7 +1,6 @@
-package Students.students.repository;
+package students.students.repository;
 
-import Students.students.data.Student;
-import Students.students.data.StudentsCourses;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -9,6 +8,8 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
+import students.students.data.Student;
+import students.students.data.StudentsCourses;
 
 /**
  * 受講生情報を扱うリポジトリ

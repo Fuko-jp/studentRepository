@@ -1,12 +1,13 @@
-package Students.students.controller;
+package students.students.controller;
 
-import Students.students.data.Student;
-import Students.students.data.StudentsCourses;
-import Students.students.domain.StudentDetail;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
+import students.students.data.Student;
+import students.students.data.StudentsCourses;
+import students.students.domain.StudentDetail;
 
 
 @Component

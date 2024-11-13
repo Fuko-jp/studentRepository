@@ -1,14 +1,16 @@
-package Students.students.service;
+package students.students.service;
 
-import Students.students.data.Student;
-import Students.students.data.StudentsCourses;
-import Students.students.domain.StudentDetail;
-import Students.students.repository.StudentRepository;
+
+
 import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import students.students.data.Student;
+import students.students.data.StudentsCourses;
+import students.students.domain.StudentDetail;
+import students.students.repository.StudentRepository;
 
 @Service
 public class StudentService {
@@ -37,8 +39,6 @@ public class StudentService {
   public List<StudentsCourses> searchStudentsCoursesList() {
     return repository.searchStudentsCoursesList();
   }
-
-//    //TODOコース情報登録
 
   @Transactional
   public void registerStudent(StudentDetail studentDetail) {
